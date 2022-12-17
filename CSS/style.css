@@ -1,0 +1,64 @@
+body{
+    background-color: rgb(224, 224, 195);
+}
+
+/*Titulo*/
+header .tituloPrincipal{
+    text-align: center;
+    padding: 2rem;
+    color: rgb(54, 79, 88);
+    font-size: 3rem;
+}
+
+
+/*NAV*/
+nav{
+    margin: 1rem;
+}
+nav .navPrincipal{
+    border: 1px solid rgb(43, 0, 255);
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+   
+}
+nav .navPrincipal li{
+    padding: 2rem;
+    list-style-type: none;
+    color: rgb(54, 79, 88);
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+/*Main*/
+main{
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 20vw 1fr;
+    grid-template-areas: "Filtro Main";
+}
+main .filtrosPrincipal{
+    margin: 0.5rem;
+    grid-area: Filtro;
+    border: 1px solid rgb(43, 0, 255);
+    text-align: center;  
+}
+main .sectionPrincipal{
+    margin: 0.5rem;
+    grid-area: Main;
+    border: 1px solid rgb(43, 0, 255);
+    text-align: center;  
+}
+
+/*Footer*/
+footer{
+    margin: 1rem;
+    border: 1px solid rgb(43, 0, 255);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+footer h4{
+    padding: 1rem;
+   
+}
