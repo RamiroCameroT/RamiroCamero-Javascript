@@ -16,13 +16,42 @@ const productos = [
 
 productos.forEach (item =>{
     let div = document.createElement("div");
+    div.className = "productos"
     div.innerHTML = `
         <h3>${item.Nombre}</h3>
         <h4>Precio: $ ${item.Precio}</h6>
         <p>Categoria: ${item.Categoria}</p>
-        <p>ID: ${item.id}</p>
+        <p">ID: ${item.id}</p>
         <button>Comprar</button>
         `
-    sectionPlatos.append(div)
+        sectionPlatos.append(div)
 
 });
+
+console.log(productos);
+
+let botonEnt = document.getElementById("Entradas");
+botonEnt.onclick = () => {
+    const filtro = productos.filter(item => item.Categoria == 1);
+    console.log(filtro);
+};
+let botonPrin = document.getElementById("Principales");
+botonPrin.onclick = () => {
+    const filtro = productos.filter(item => item.Categoria == 2);
+    console.log(filtro);
+};
+let botonPost = document.getElementById("Postres");
+botonPost.onclick = () => {
+    const filtro = productos.filter(item => item.Categoria == 3);
+    console.log(filtro);
+};
+let botonBeb = document.getElementById("Bebidas");
+botonBeb.onclick = () => {
+    const filtro = productos.filter(item => item.Categoria == 4);
+    console.log(filtro);
+};
+
+
+
+
+
