@@ -1,3 +1,7 @@
+let NombreUsuario = prompt("Bienvenido a Sallie Gourmet, como es su nombre?");
+alert(`Bienvenido ${NombreUsuario}, a continuacion podra acceder a nuestro menu. Muchas gracias por elegirnos`)
+
+
 let sectionProductos = document.getElementById("sectionPlatos");
 const productos = [
     {id: 1, Nombre: "Fideos con Salsa a Eleccion", Precio: 1800, Categoria: 2},
@@ -30,26 +34,34 @@ productos.forEach (item =>{
 
 console.log(productos);
 
-let botonEnt = document.getElementById("Entradas");
-botonEnt.onclick = () => {
-    const filtro = productos.filter(item => item.Categoria == 1);
+function filtrar(categ) {
+    const filtro = productos.filter(item => item.Categoria == categ);
     console.log(filtro);
+};
+
+let botonEnt = document.getElementById("Entradas"); //No encuentro la forma de que estos filtros se me vean reflejados en el html. Si te fijas, en consola se me filtra bien
+botonEnt.onclick = () => {
+    filtrar(1)
 };
 let botonPrin = document.getElementById("Principales");
 botonPrin.onclick = () => {
-    const filtro = productos.filter(item => item.Categoria == 2);
-    console.log(filtro);
+    filtrar(2);
 };
 let botonPost = document.getElementById("Postres");
 botonPost.onclick = () => {
-    const filtro = productos.filter(item => item.Categoria == 3);
-    console.log(filtro);
+    filtrar(3)
 };
 let botonBeb = document.getElementById("Bebidas");
 botonBeb.onclick = () => {
-    const filtro = productos.filter(item => item.Categoria == 4);
-    console.log(filtro);
+    filtrar(4);
 };
+
+let filtroNombre = document.getElementById("filtroNombre"); 
+let filtroN = filtroNombre.addEventListener("input", () => { //Aca que evento me recomendas usar???
+    let valor = filtroNombre.value;
+    const filtroN = productos.filter(item => item.Nombre.includes == valor);
+    console.log(filtroN);
+})
 
 
 
