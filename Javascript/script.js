@@ -18,42 +18,60 @@ const productos = [
     {id: 12, Nombre: "Vinos", Precio: 500, Categoria: 4},
 ];
 
-productos.forEach (item =>{
-    let div = document.createElement("div");
-    div.className = "productos"
-    div.innerHTML = `
-        <h3>${item.Nombre}</h3>
-        <h4>Precio: $ ${item.Precio}</h6>
-        <p>Categoria: ${item.Categoria}</p>
-        <p">ID: ${item.id}</p>
-        <button>Comprar</button>
-        `
-        sectionPlatos.append(div)
+// productos.forEach (item =>{
+//     let div = document.createElement("div");
+//     div.className = "productos"
+//     div.innerHTML = `
+//         <h3>${item.Nombre}</h3>
+//         <h4>Precio: $ ${item.Precio}</h6>
+//         <p>Categoria: ${item.Categoria}</p>
+//         <p">ID: ${item.id}</p>
+//         <button>Comprar</button>
+//         `
+//         sectionPlatos.append(div)
 
-});
+// });
 
-console.log(productos);
+
+
 
 function filtrar(categ) {
     const filtro = productos.filter(item => item.Categoria == categ);
-    console.log(filtro);
+    return filtro;
 };
+let section = document.getElementById("sectionPlatos");
+function filtroSeccion (item) {
+    const filtrado = filtrar(item);
+    filtrado.forEach (item =>{
+        let div = document.createElement("div");
+        div.className = "productos"
+        div.innerHTML = `
+            <h3>${item.Nombre}</h3>
+            <h4>Precio: $ ${item.Precio}</h6>
+            <p>Categoria: ${item.Categoria}</p>
+            <p">ID: ${item.id}</p>
+            <button>Comprar</button>
+            `
+            section.append(div); // no encuentro la forma para que se me borre lo anterior del html y se me agregue solo lo filtrado. ya que si lo probas se vana cumulando y nunca me borra lo anterior
+            
+})};
 
-let botonEnt = document.getElementById("Entradas"); //No encuentro la forma de que estos filtros se me vean reflejados en el html. Si te fijas, en consola se me filtra bien
+
+let botonEnt = document.getElementById("Entradas"); 
 botonEnt.onclick = () => {
-    filtrar(1)
+    filtroSeccion (1);
 };
 let botonPrin = document.getElementById("Principales");
 botonPrin.onclick = () => {
-    filtrar(2);
+    filtroSeccion (2);
 };
 let botonPost = document.getElementById("Postres");
 botonPost.onclick = () => {
-    filtrar(3)
+    filtroSeccion (3);
 };
 let botonBeb = document.getElementById("Bebidas");
 botonBeb.onclick = () => {
-    filtrar(4);
+    filtroSeccion (4);
 };
 
 let filtroNombre = document.getElementById("filtroNombre"); 
