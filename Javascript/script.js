@@ -13,8 +13,8 @@ const productos = [
     {id: 12, Nombre: "Vinos", Precio: 500, Categoria: 4},
 ];
 
-
 let productosHTML = document.getElementById("sectionPlatos");
+
 productos.forEach( item =>{
     let div = document.createElement("div");
     div.classList.add("productos")
@@ -25,3 +25,17 @@ productos.forEach( item =>{
     `
     sectionPlatos.append(div);
 });
+
+let boton1 = document.getElementById("Entradas");
+
+const Hola = (categ) => {
+    let borrar = document.getElementById("sectionPlatos");
+    if (borrar.parentNode) {
+    borrar.parentNode.removeChild(borrar);
+    
+    const prod = productos.filter( item => item.Categoria === categ);
+    console.log(prod);
+}};
+
+boton1.addEventListener("click", () => Hola(1));
+

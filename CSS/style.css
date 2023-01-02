@@ -39,6 +39,7 @@ main .sectionPrincipal section{
     padding: 2rem;
 }
 footer{
+    margin-top: 5rem;
     border: solid red;
     display: flex;
     justify-content: center;
