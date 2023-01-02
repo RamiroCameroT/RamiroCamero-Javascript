@@ -1,106 +1,48 @@
 body{
-    background-color: rgb(224, 224, 195);
+    background-color: antiquewhite;
 }
-
-/*Titulo*/
-header .tituloPrincipal{
-    text-align: center;
+header{
+    border: solid red;
+}
+header h1{
     padding: 2rem;
-    color: rgb(54, 79, 88);
-    font-size: 3rem;
-}
-
-
-/*NAV*/
-
-nav .navPrincipal{
-    border: 1px solid rgb(43, 0, 255);
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-   
-}
-nav .navPrincipal li{
-    padding: 1rem;
-    list-style-type: none;
-    color: rgb(54, 79, 88);
-    font-weight: 900;
-    font-size: 1.1rem;
-}
-
-/*Main*/
-main{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 
-        "Filtro"
-        "Main"; 
-}
-main .filtrosPrincipal{
-    grid-area: Filtro;
-    border: 1px solid rgb(43, 0, 255);
-    text-align: center;  
-}
-.filtro{
-    width: 6px;
-}
-main .sectionPrincipal{
-    margin-top: 1rem;
-    grid-area: Main;
-    border: 1px solid rgb(43, 0, 255);
-    text-align: center;  
-}
-.filtro{
-    margin: 1rem;
     text-align: center;
-    width: auto;
 }
-.sectionPrincipal section{
-    
+nav{
+    border: solid red;
+}
+nav ul{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+main{
+    border: solid red;
+}
+main .sectionPrincipal h3{
+    padding: 2rem;
+    text-align: center;
+    border: dotted blue;
+}
+main .sectionPrincipal section{
+    border: dotted blue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
-
 }
-.productos {
-    color: rgb(54, 79, 88);
-    padding: 1rem;
-    border: 1px solid red; 
-    width: 42%; 
-    margin: 1rem;
-};
-
-.boton{
-    margin: 2rem;
+.productos{
+    width: 30rem;
+    text-align: center;
+    border: dotted rgb(96, 156, 23);
+    padding: 2rem;
 }
-
-/*Footer*/
 footer{
-    margin-top: 3rem;
-    border: 1px solid rgb(43, 0, 255);
-    padding: 1rem;
+    border: solid red;
     display: flex;
     justify-content: center;
 }
 footer h4{
     padding: 1rem;
-   
-}
-
-@media screen and (min-width: 768px){
-    nav .navPrincipal{
-        flex-flow: row;
-        justify-content: space-evenly;
-        }
-    main{
-        grid-template-columns: 28vw 1fr;
-        grid-template-areas: "Filtro Main";
-    }
-    main .sectionPrincipal{
-        margin-top:0 ;
-    }
 }
