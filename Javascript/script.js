@@ -27,15 +27,21 @@ productos.forEach( item =>{
 });
 
 let boton1 = document.getElementById("Entradas");
+let boton2 = document.getElementById("Principales");
+let boton3 = document.getElementById("Postres");
+let boton4 = document.getElementById("Bebidas");
+// let boton5 = document.getElementById("Todos");
 
 const Hola = (categ) => {
-    let borrar = document.getElementById("sectionPlatos");
-    if (borrar.parentNode) {
-    borrar.parentNode.removeChild(borrar);
-    
     const prod = productos.filter( item => item.Categoria === categ);
-    console.log(prod);
-}};
+    console.log(prod); //me podrias decir como hacer para que se me filtren en el html y me aparezcan solo los filtrados que me apareen en la consola??
+};
+// };
 
 boton1.addEventListener("click", () => Hola(1));
+boton2.addEventListener("click", () => Hola(2));
+boton3.addEventListener("click", () => Hola(3));
+boton4.addEventListener("click", () => Hola(4));
+// boton1.addEventListener("click", () => Hola());
+
 
