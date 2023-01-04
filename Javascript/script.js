@@ -15,26 +15,43 @@ const productos = [
 
 let productosHTML = document.getElementById("sectionPlatos");
 
-productos.forEach( item =>{
-    let div = document.createElement("div");
-    div.classList.add("productos")
-    div.innerHTML = `
-        <h2>${item.Nombre}</h2>
-        <h4>$${item.Precio}</h4>
-        <button>Agregar</button>
-    `
-    sectionPlatos.append(div);
-});
+let carrito = [];
+
+
+const filtrado = (var1) => {
+    var1.forEach( item =>{
+        let div = document.createElement("div");
+        div.classList.add("productos")
+        div.innerHTML = `
+            <h2>${item.Nombre}</h2>
+            <h4>$${item.Precio}</h4>
+            <button id="boton${item.id}">Agregar</button>
+        `
+        sectionPlatos.append(div);
+        
+        let boton = document.getElementById(`boton${item.id}`);
+
+        const ejecutar = (id) =>{
+            let encontrado = productos.find(item => item.id === id);
+            carrito.push(encontrado);
+            localStorage.setItem("Carrito", JSON.stringify(carrito));
+        }
+        boton.addEventListener("click", () => ejecutar(item.id)); 
+})};
+
+filtrado(productos);
 
 let boton1 = document.getElementById("Entradas");
 let boton2 = document.getElementById("Principales");
 let boton3 = document.getElementById("Postres");
 let boton4 = document.getElementById("Bebidas");
-// let boton5 = document.getElementById("Todos");
+let botonCarrito = document.getElementById("Carrito")
 
 const Hola = (categ) => {
     const prod = productos.filter( item => item.Categoria === categ);
-    console.log(prod); //me podrias decir como hacer para que se me filtren en el html y me aparezcan solo los filtrados que me apareen en la consola??
+    // sectionPlatos.removeChild(div);
+   
+    filtrado(prod); //COMO HAGO PARA QUE ME FUMCIONE Y SE ME ACTUALICE EL HTML DEJANDOME SOLO LO QUE ESTOY FILTRANDO?????????
 };
 // };
 
@@ -42,6 +59,8 @@ boton1.addEventListener("click", () => Hola(1));
 boton2.addEventListener("click", () => Hola(2));
 boton3.addEventListener("click", () => Hola(3));
 boton4.addEventListener("click", () => Hola(4));
-// boton1.addEventListener("click", () => Hola());
 
-
+botonCarrito.addEventListener("click", () => {
+    let carritoVista = JSON.parse(localStorage.getItem("Carrito"))
+    console.log(carritoVista);
+})
