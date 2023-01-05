@@ -48,12 +48,11 @@ let boton4 = document.getElementById("Bebidas");
 let botonCarrito = document.getElementById("Carrito")
 
 const Hola = (categ) => {
-    const prod = productos.filter( item => item.Categoria === categ);
-    // sectionPlatos.removeChild(div);
+    const prod = productos.filter( (item) => item.Categoria === categ);
+    sectionPlatos.innerHTML = "";
    
-    filtrado(prod); //COMO HAGO PARA QUE ME FUMCIONE Y SE ME ACTUALICE EL HTML DEJANDOME SOLO LO QUE ESTOY FILTRANDO?????????
+    filtrado(prod); 
 };
-// };
 
 boton1.addEventListener("click", () => Hola(1));
 boton2.addEventListener("click", () => Hola(2));
