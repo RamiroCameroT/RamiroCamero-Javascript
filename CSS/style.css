@@ -55,6 +55,22 @@ footer h4{
     padding: 1rem;
 }
 
+.botonCerrar{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: right;
+
+}
+.botonC{
+    text-align: left;
+}
 .MenuLateral{
     background-color: rgb(230, 205, 173);
+    padding: 0.8rem
+};
+
+/*Juli*/
+.texto {
+    align-content: center;
 }
