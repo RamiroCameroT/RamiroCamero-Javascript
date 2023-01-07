@@ -86,9 +86,16 @@ footer h4{
     }
 }
 
-/*Juli*/
-.texto {
-    align-content: center;
+.carritoCont{
+    padding: 1rem;
 }
-
-
+.productosCarrito{
+    width: auto;
+    text-align: center;
+    border: dotted rgb(96, 156, 23);
+    padding: 0.7rem;
+}
+.botonRemC{
+    margin-top: 2rem;
+    text-align: center;
+}

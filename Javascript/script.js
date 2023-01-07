@@ -61,10 +61,24 @@ boton4.addEventListener("click", () => Hola(4));
 
 botonCarrito.addEventListener("click", () => {
     let carritoVista = JSON.parse(localStorage.getItem("Carrito"))
-    console.log(carritoVista);
-})
+    carritoVista.forEach( item =>{
+        let div = document.createElement("div");
+        div.classList.add("productosCarrito")
+        div.innerHTML = `
+            <h2>${item.Nombre}</h2>
+            <h4>$${item.Precio}</h4>
+            <button id="boton${item.id}">Remover</button>`
+        carritoBarra.append(div);
+})});
 
 const pushbar = new Pushbar({
     blur:true,
     overlay:true,
+  });
+
+  let botonRemC = document.getElementById("BotonRemC");
+  botonRemC.addEventListener("click", () => {
+      localStorage.clear();
+      alert("Carrito eliminado");
+      location.reload();
   });
