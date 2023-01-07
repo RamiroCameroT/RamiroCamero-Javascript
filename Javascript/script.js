@@ -1,5 +1,5 @@
 const productos = [
-    {id: 1, Nombre: "Fideos con Salsa a Eleccion", Precio: 1800, Categoria: 2},
+    {id: 1, Nombre: "Fideos con Salsa a Eleccion", Precio: 1800, Categoria: 2,},
     {id: 2, Nombre: "Milanesa a la Napolitana", Precio: 2100, Categoria: 2},
     {id: 3, Nombre: "Filet de Merluza con Guarnicion", Precio: 1950, Categoria: 2},
     {id: 4, Nombre: "Tortilla de Papa", Precio: 1500, Categoria: 1},
@@ -69,6 +69,7 @@ botonCarrito.addEventListener("click", () => {
             <h4>$${item.Precio}</h4>
             <button id="boton${item.id}">Remover</button>`
         carritoBarra.append(div);
+
 })});
 
 const pushbar = new Pushbar({

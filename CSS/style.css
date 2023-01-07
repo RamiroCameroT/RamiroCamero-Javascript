@@ -1,15 +1,22 @@
+
 body{
-    background-color: rgb(246, 223, 192);
+background-color: #aac2fb;
+font-family: 'Kanit', sans-serif;
+color: #00524c;
 }
-header{
-    border: solid red;
-}
+
+/*HEADER*/
 header h1{
-    padding: 2rem;
-    text-align: center;
+    padding: 3rem;
+    text-align: center;  
+    font-size: 2.5rem; 
 }
+
+/*NAV*/
 nav{
-    border: solid red;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(40deg, #aac2fb 0%, #9baaf5 50%, #aac2fb 100%);
+ 
 }
 nav .navPrincipal{
     padding: 1rem;
@@ -24,6 +31,10 @@ nav .navPrincipal li{
     font-weight: 900;
     font-size: 1.1rem;
 }
+nav .navPrincipal li button:hover{
+    color: rgb(222, 218, 218);
+    font-size: 1.2rem;
+}
 
 .botonesNav{
     border: none;
@@ -32,35 +43,49 @@ nav .navPrincipal li{
     font-weight: 600;
     cursor: pointer;
 }
-main{
-    border: solid red;
-}
-main .sectionPrincipal h3{
-    padding: 2rem;
+
+/*MAIN*/
+
+main .sectionPrincipal div h3{
+    padding: 1rem;
     text-align: center;
-    border: dotted blue;
+    font-size: 1.8rem;
+   
 }
 main .sectionPrincipal section{
-    border: dotted blue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 .productos{
-    width: 30rem;
+    width: 25rem;
     text-align: center;
-    border: dotted rgb(96, 156, 23);
     padding: 2rem;
+    margin: 1rem;
+    font-size: 0.9rem;
+    border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    border: 6px solid #d6d5f3;
+    
+    
 }
+
+/*FOOTER*/
 footer{
     margin-top: 5rem;
-    border: solid red;
     display: flex;
     justify-content: center;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(40deg, #aac2fb 0%, #8d9ef1 50%, #aac2fb 100%);
 }
 footer h4{
     padding: 1rem;
+    font-size: 1rem;
+
 }
+
+/*CARRITO*/
 
 .botonCerrar{
     border: none;
@@ -77,14 +102,6 @@ footer h4{
     padding: 0.8rem
 };
 
-@media screen and (min-widht: 600px){}
-
-@media screen and (min-width: 600px){
-    nav .navPrincipal{
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-}
 
 .carritoCont{
     padding: 1rem;
@@ -98,4 +115,19 @@ footer h4{
 .botonRemC{
     margin-top: 2rem;
     text-align: center;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (min-widht: 600px){}
+
+@media screen and (min-width: 600px){
+    nav .navPrincipal{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    footer h4{
+        font-size: 1.3rem;
+        padding: 1rem;
+        margin: 1rem 2rem;
+    }
 }
