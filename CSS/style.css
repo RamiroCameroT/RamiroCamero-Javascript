@@ -11,13 +11,20 @@ header h1{
 nav{
     border: solid red;
 }
-nav ul{
-    padding: 2rem;
+nav .navPrincipal{
+    padding: 1rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
     list-style-type: none;
 }
+nav .navPrincipal li{
+    padding: 1rem;
+    color: rgb(54, 79, 88);
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
 .botonesNav{
     border: none;
     background-color: transparent;
@@ -70,7 +77,18 @@ footer h4{
     padding: 0.8rem
 };
 
+@media screen and (min-widht: 600px){}
+
+@media screen and (min-width: 600px){
+    nav .navPrincipal{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
 /*Juli*/
 .texto {
     align-content: center;
 }
+
+
