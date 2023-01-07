@@ -63,3 +63,8 @@ botonCarrito.addEventListener("click", () => {
     let carritoVista = JSON.parse(localStorage.getItem("Carrito"))
     console.log(carritoVista);
 })
+
+const pushbar = new Pushbar({
+    blur:true,
+    overlay:true,
+  });

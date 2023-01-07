@@ -1,5 +1,5 @@
 body{
-    background-color: antiquewhite;
+    background-color: rgb(246, 223, 192);
 }
 header{
     border: solid red;
@@ -17,6 +17,13 @@ nav ul{
     flex-direction: row;
     justify-content: space-evenly;
     list-style-type: none;
+}
+.botonesNav{
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 main{
     border: solid red;
@@ -46,4 +53,8 @@ footer{
 }
 footer h4{
     padding: 1rem;
+}
+
+.MenuLateral{
+    background-color: rgb(230, 205, 173);
 }

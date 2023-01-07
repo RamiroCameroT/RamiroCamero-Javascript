@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Material+Icons' rel='stylesheet'>
+    <link rel="stylesheet" href="./CSS/pushbar.css">
     <link rel="stylesheet" href="./CSS/style.css">
     <title>Sallie Gourmet</title>
 </head>
@@ -14,22 +16,31 @@
     <nav>
         <ul class="navPrincipal">
             <li>
-                <button id="Entradas">Entradas</button>
+                <button id="Entradas" class="botonesNav">Entradas</button>
             </li>
             <li>
-                <button id="Principales">Principales</button>
+                <button id="Principales" class="botonesNav">Principales</button>
             </li>
             <li>
-                <button id="Postres">Postres</button>
+                <button id="Postres" class="botonesNav">Postres</button>
             </li>
             <li>
-                <button id="Bebidas">Bebidas</button>
+                <button id="Bebidas" class="botonesNav">Bebidas</button>
             </li>
             <li>
-                <button id="Carrito">Carrito</button>
+                <button id="Carrito" class="botonesNav pushbar_main_content" data-pushbar-target="mypushbar1"><i class="material-icons">shopping_cart</i></button>
             </li>
         </ul>
     </nav>
+    
+    <div data-pushbar-id="mypushbar1" data-pushbar-direction="right" class="MenuLateral">
+        <button data-pushbar-close>Close</button>
+        <div>
+            Este es el carrito
+        </div>
+    </div>
+   
+
     <main>
         <section class="sectionPrincipal">
             <h3>Carta / Menu</h3>
@@ -45,6 +56,8 @@
         <h4>Gracias por elegirnos</h4>
     </footer>
 
+<script src="https://kit.fontawesome.com/2c7ef9c20a.js" crossorigin="anonymous"></script>
+<script src="./Javascript/pushbar.js"></script>
 <script src="./Javascript/script.js"></script>
 </body>
 </html>
