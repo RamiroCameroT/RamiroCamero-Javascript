@@ -17,6 +17,15 @@ let productosHTML = document.getElementById("sectionPlatos");
 
 let carrito = [];
 
+const agregar = () =>{
+    Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'El producto se ha agregado al carrito',
+    showConfirmButton: false,
+    timer: 1000
+    })
+}
 
 const filtrado = (var1) => {
     var1.forEach( item =>{
@@ -35,6 +44,7 @@ const filtrado = (var1) => {
             let encontrado = productos.find(item => item.id === id);
             carrito.push(encontrado);
             localStorage.setItem("Carrito", JSON.stringify(carrito));
+            agregar();
         }
         boton.addEventListener("click", () => ejecutar(item.id)); 
 })};
@@ -81,5 +91,17 @@ const pushbar = new Pushbar({
   botonRemC.addEventListener("click", () => {
       localStorage.clear();
       alert("Carrito eliminado");
-      location.reload();
+      location.reload(); // para que se recargue sola la pagina
+    
   });
+
+  const DateTime = luxon.DateTime;
+  const now = DateTime.now().toLocaleString(DateTime.DATE_FULL)
+  let fecha = document.getElementById("fecha");
+  let divF = document.createElement("div");
+  divF.classList.add("fecha1")
+  divF.innerHTML =`
+  <h4>${now}</h4>
+  `
+  fecha.append(divF)
+  
