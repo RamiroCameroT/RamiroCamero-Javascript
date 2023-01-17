@@ -74,6 +74,7 @@ botonCarrito.addEventListener("click", () => {
     carritoVista.forEach( item => {
         let div = document.createElement("div");
         div.classList.add("productosCarrito");
+        div.id = `${item.id}`;
         div.innerHTML = `
             <h2>${item.Nombre}</h2>
             <h4>$${item.Precio}</h4>
@@ -84,7 +85,7 @@ botonCarrito.addEventListener("click", () => {
 
         const borrar = (id) =>{
             let encontrado = carritoVista.find(item => item.id === id);
-            
+
             
             let index = carritoVista.indexOf(encontrado);
             if (index !== -1) {
@@ -93,6 +94,8 @@ botonCarrito.addEventListener("click", () => {
             };
             localStorage.setItem("Carrito", JSON.stringify(carritoVista));
             
+            let remover = document.getElementById(id)
+            remover.remove();
         };
 
         boton.addEventListener("click", () => borrar(item.id));    
