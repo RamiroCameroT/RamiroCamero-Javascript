@@ -34,7 +34,7 @@ const filtrado = (var1) => {
         div.innerHTML = `
             <h2>${item.Nombre}</h2>
             <h4>$${item.Precio}</h4>
-            <button id="boton${item.id}">Agregar</button>
+            <button id="boton${item.id}"><i class="fas fa-shopping-cart"></i></button>
         `
         sectionPlatos.append(div);
         

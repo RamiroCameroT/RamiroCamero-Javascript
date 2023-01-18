@@ -92,6 +92,18 @@ main .sectionPrincipal section{
     
 }
 
+.productos button{
+    padding: 0.4rem 1rem ;
+    background-color: #dddcef;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    border: 2px solid #d6d5f3;
+    color: rgb(2, 22, 22);
+    cursor: pointer;
+    
+}
+
 /*FOOTER*/
 footer{
     margin-top: 5rem;
@@ -119,7 +131,7 @@ footer h4{
     text-align: left;
 }
 .MenuLateral{
-    background-color: rgb(230, 205, 173);
+    background-color: #bbc4da;
     padding: 0.8rem
 };
 
@@ -127,16 +139,54 @@ footer h4{
 .carritoCont{
     padding: 1rem;
 }
+.carritoCont div{
+    margin: 1rem 0;
+}
+
+.carritoCont div h2{
+    text-align: center;
+}
 .productosCarrito{
     width: auto;
     text-align: center;
     border: dotted rgb(96, 156, 23);
     padding: 0.7rem;
+    font-size: 0.8rem;
+    border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    border: 4px solid #d6d5f3;
+    margin: 1rem;
+}
+
+.productosCarrito button{
+    padding: 0.4rem 1rem ;
+    background-color: #dddcef;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border: 2px solid #d6d5f3;
+    color: rgb(2, 22, 22);
+    cursor: pointer;
+
 }
 .botonRemC{
     margin-top: 2rem;
     text-align: center;
 }
+
+.botonRemC button{
+    padding: 0.4rem 1rem ;
+    background-color: #dddcef;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    border: 2px solid #d6d5f3;
+    color: rgb(2, 22, 22);
+    cursor: pointer;
+}
+
+
 
 /*MEDIA QUERIES*/
 @media screen and (min-widht: 600px){}
