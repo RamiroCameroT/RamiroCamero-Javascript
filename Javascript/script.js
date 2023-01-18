@@ -36,6 +36,21 @@ const borrarCarrito = () =>{
     })
 }
 
+const ComprarCarrito = () =>{
+    Swal.fire({
+        title: 'Desea continuar con la compra?',
+        showDenyButton: true,
+        confirmButtonText: 'Confirmar',
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Su carrito ha sido confirmado', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Se ha cancelado la compra', '', 'error')
+        }
+      })
+}
+
 const filtrado = (var1) => {
     var1.forEach( item =>{
         let div = document.createElement("div");
@@ -120,6 +135,12 @@ const pushbar = new Pushbar({
       localStorage.clear();
       borrarCarrito();
       location.reload(); // para que se recargue sola la pagina
+    
+  });
+
+  let botonComprar = document.getElementById("BotonComprar");
+  botonComprar.addEventListener("click", () => {
+    ComprarCarrito();
     
   });
 
