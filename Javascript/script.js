@@ -26,6 +26,15 @@ const agregar = () =>{
     timer: 1000
     })
 }
+const borrarCarrito = () =>{
+    Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Se ha vaciado el carrito',
+    showConfirmButton: true,
+    timer: 4000
+    })
+}
 
 const filtrado = (var1) => {
     var1.forEach( item =>{
@@ -60,7 +69,6 @@ let botonCarrito = document.getElementById("Carrito")
 const Hola = (categ) => {
     const prod = productos.filter( (item) => item.Categoria === categ);
     sectionPlatos.innerHTML = "";
-   
     filtrado(prod); 
 };
 
@@ -110,7 +118,7 @@ const pushbar = new Pushbar({
   let botonRemC = document.getElementById("BotonRemC");
   botonRemC.addEventListener("click", () => {
       localStorage.clear();
-      alert("Carrito eliminado");
+      borrarCarrito();
       location.reload(); // para que se recargue sola la pagina
     
   });
