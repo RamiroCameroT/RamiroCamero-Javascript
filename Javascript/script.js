@@ -51,6 +51,24 @@ const ComprarCarrito = () =>{
       })
 }
 
+const CarritoCalc = () => {
+    let carritoTotal = JSON.parse(localStorage.getItem("Carrito"));
+    let total = 0;
+
+    carritoTotal.forEach(item =>{
+        total += item.Precio
+    });
+
+    let totalCar = document.getElementById("precio");
+    let div = document.createElement("div");
+    div.classList.add("totalPagar")
+    div.innerHTML = `${total}`;
+    precio.innerHTML = "";
+    precio.append(div);
+};
+
+
+
 const filtrado = (var1) => {
     var1.forEach( item =>{
         let div = document.createElement("div");
@@ -69,6 +87,7 @@ const filtrado = (var1) => {
             carrito.push(encontrado);
             localStorage.setItem("Carrito", JSON.stringify(carrito));
             agregar();
+            CarritoCalc();
         }
         boton.addEventListener("click", () => ejecutar(item.id)); 
 })};
@@ -119,9 +138,11 @@ botonCarrito.addEventListener("click", () => {
             
             let remover = document.getElementById(id)
             remover.remove();
+
+            CarritoCalc();
         };
 
-        boton.addEventListener("click", () => borrar(item.id));    
+        boton.addEventListener("click", () =>borrar(item.id));    
 
 })});
 
@@ -154,3 +175,6 @@ const pushbar = new Pushbar({
   `
   fecha.append(divF)
   
+
+
+ 

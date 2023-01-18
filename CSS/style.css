@@ -190,6 +190,15 @@ footer h4{
 }
 
 
+.totalPagar{
+    text-align: center;
+    
+}
+
+.totales h3{
+    margin-top: 4rem;
+    text-align: center;
+}
 
 /*MEDIA QUERIES*/
 @media screen and (min-widht: 600px){}
