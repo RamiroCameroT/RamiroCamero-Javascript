@@ -112,8 +112,8 @@ boton3.addEventListener("click", () => Hola(3));
 boton4.addEventListener("click", () => Hola(4));
 
 botonCarrito.addEventListener("click", () => {
-    let carritoVista = JSON.parse(localStorage.getItem("Carrito"))
-    carritoVista.forEach( item => {
+    carrito = JSON.parse(localStorage.getItem("Carrito"))
+    carrito.forEach( item => {
         let div = document.createElement("div");
         div.classList.add("productosCarrito");
         div.id = `${item.id}`;
@@ -126,15 +126,15 @@ botonCarrito.addEventListener("click", () => {
         let boton = document.getElementById(`boton${item.id}`);
 
         const borrar = (id) =>{
-            let encontrado = carritoVista.find(item => item.id === id);
+            let encontrado = carrito.find(item => item.id === id);
 
             
-            let index = carritoVista.indexOf(encontrado);
+            let index = carrito.indexOf(encontrado);
             if (index !== -1) {
-                carritoVista.splice(index, 1);
+                carrito.splice(index, 1);
 
             };
-            localStorage.setItem("Carrito", JSON.stringify(carritoVista));
+            localStorage.setItem("Carrito", JSON.stringify(carrito));
             
             let remover = document.getElementById(id)
             remover.remove();
