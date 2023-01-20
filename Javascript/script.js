@@ -113,6 +113,7 @@ boton4.addEventListener("click", () => Hola(4));
 
 botonCarrito.addEventListener("click", () => {
     carrito = JSON.parse(localStorage.getItem("Carrito"))
+    carritoBarra.innerHTML = "";
     carrito.forEach( item => {
         let div = document.createElement("div");
         div.classList.add("productosCarrito");
