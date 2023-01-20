@@ -26,6 +26,15 @@ const agregar = () =>{
     timer: 1000
     })
 }
+
+const encontradoItem = () =>{
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El producto ya se encuentra en el carrito',
+      })
+}
+
 const borrarCarrito = () =>{
     Swal.fire({
     position: 'top-end',
@@ -84,10 +93,17 @@ const filtrado = (var1) => {
 
         const ejecutar = (id) =>{
             let encontrado = productos.find(item => item.id === id);
-            carrito.push(encontrado);
-            localStorage.setItem("Carrito", JSON.stringify(carrito));
-            agregar();
-            CarritoCalc();
+            
+            if (!carrito.includes(encontrado)) {
+                carrito.push(item)
+                localStorage.setItem("Carrito", JSON.stringify(carrito))
+                agregar();
+                CarritoCalc();
+            } else {
+                encontradoItem();
+                localStorage.setItem("Carrito", JSON.stringify(carrito))
+            }
+        
         }
         boton.addEventListener("click", () => ejecutar(item.id)); 
 })};
@@ -127,9 +143,9 @@ botonCarrito.addEventListener("click", () => {
         let boton = document.getElementById(`boton${item.id}`);
 
         const borrar = (id) =>{
+            carrito = JSON.parse(localStorage.getItem("Carrito"))
             let encontrado = carrito.find(item => item.id === id);
 
-            
             let index = carrito.indexOf(encontrado);
             if (index !== -1) {
                 carrito.splice(index, 1);
