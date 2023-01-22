@@ -76,9 +76,7 @@ const CarritoCalc = () => {
     precio.append(div);
 };
 
-
-
-const filtrado = (var1) => {
+const filtrado1 = (var1) => {
     var1.forEach( item =>{
         let div = document.createElement("div");
         div.classList.add("productos")
@@ -113,7 +111,46 @@ const filtrado = (var1) => {
         boton.addEventListener("click", () => ejecutar(item.id)); 
 })};
 
-filtrado(productos);
+
+const filtrado = () => {
+    fetch("./data.json")
+    .then((response) => response.json())
+    .then(data => {
+        data.forEach(item => {
+        let div = document.createElement("div");
+        div.classList.add("productos")
+        div.style.backgroundImage = `url(${item.img})`;
+        div.style.backgroundSize = "cover";
+        div.style.backgroundRepeat = "no-repeat";
+        div.style.backgroundPosition = "center";
+        div.style.opacity = "0.9";
+        div.innerHTML = `
+            <h2>${item.Nombre}</h2>
+            <h4>$${item.Precio}</h4>
+            <button id="boton${item.id}"><i class="fas fa-shopping-cart"></i></button>
+        `
+        sectionPlatos.append(div);
+        
+        let boton = document.getElementById(`boton${item.id}`);
+
+        const ejecutar = (id) =>{
+            let encontrado = productos.find(item => item.id === id);
+            
+            if (!carrito.includes(encontrado)) {
+                carrito.push(item)
+                localStorage.setItem("Carrito", JSON.stringify(carrito))
+                agregar();
+                CarritoCalc();
+            } else {
+                encontradoItem();
+                localStorage.setItem("Carrito", JSON.stringify(carrito))
+            }
+        
+        }
+        boton.addEventListener("click", () => ejecutar(item.id)); 
+    })})};
+
+filtrado();
 
 let boton1 = document.getElementById("Entradas");
 let boton2 = document.getElementById("Principales");
@@ -124,7 +161,7 @@ let botonCarrito = document.getElementById("Carrito")
 const Hola = (categ) => {
     const prod = productos.filter( (item) => item.Categoria === categ);
     sectionPlatos.innerHTML = "";
-    filtrado(prod); 
+    filtrado1(prod); 
 };
 
 boton1.addEventListener("click", () => Hola(1));
