@@ -83,7 +83,7 @@ const filtrado = () => {
         let boton = document.getElementById(`boton${item.id}`);
 
         const ejecutar = (id) =>{
-            let encontrado = productos.find(item => item.id === id);
+            let encontrado = data.find(item => item.id === id);
             
             if (!carrito.includes(encontrado)) {
                 carrito.push(item)
@@ -135,7 +135,7 @@ const Hola = async (categ) => {
                 let boton = document.getElementById(`boton${item.id}`);
         
                 const ejecutar = (id) =>{
-                    let encontrado = productos.find(item => item.id === id);
+                    let encontrado = data.find(item => item.id === id);
                     
                     if (!carrito.includes(encontrado)) {
                         carrito.push(item)
@@ -149,28 +149,10 @@ const Hola = async (categ) => {
                 
                 }
                 boton.addEventListener("click", () => ejecutar(item.id)); 
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        })
 
     } catch (error) {
-        
+        console.log(error);
     }
 
 };
@@ -186,6 +168,11 @@ botonCarrito.addEventListener("click", () => {
     carrito.forEach( item => {
         let div = document.createElement("div");
         div.classList.add("productosCarrito");
+        div.style.backgroundImage = `url(${item.img})`;
+        div.style.backgroundSize = "cover";
+        div.style.backgroundRepeat = "no-repeat";
+        div.style.backgroundPosition = "center";
+        div.style.opacity = "0.9";
         div.id = `${item.id}`;
         div.innerHTML = `
             <h2>${item.Nombre}</h2>
