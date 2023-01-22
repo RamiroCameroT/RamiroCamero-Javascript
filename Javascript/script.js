@@ -1,18 +1,3 @@
-const productos = [
-    {id: 1, Nombre: "Fideos con Salsa a Eleccion", Precio: 1800, Categoria: 2, img:"./Imagenes/Pollo.jpg"},
-    {id: 2, Nombre: "Milanesa a la Napolitana", Precio: 2100, Categoria: 2, img:"./Imagenes/Pollo.jpg"},
-    {id: 3, Nombre: "Filet de Merluza con Guarnicion", Precio: 1950, Categoria: 2, img:"./Imagenes/Pollo.jpg"},
-    {id: 4, Nombre: "Tortilla de Papa", Precio: 1500, Categoria: 1, img:"./Imagenes/Pollo.jpg"},
-    {id: 5, Nombre: "Entraña con Guarnicion", Precio: 2350, Categoria: 2, img:"./Imagenes/Pollo.jpg"},
-    {id: 6, Nombre: "Sorrentinos con Salsa a Eleccion", Precio: 1900, Categoria: 2, img:"./Imagenes/Pollo.jpg"},
-    {id: 7, Nombre: "Volcan de Chocolate", Precio: 900, Categoria: 3, img:"./Imagenes/Pollo.jpg"},
-    {id: 8, Nombre: "Lemon Pie", Precio: 750, Categoria: 3, img:"./Imagenes/Pollo.jpg"},
-    {id: 9, Nombre: "Bastones de Muzzarella", Precio: 1000, Categoria: 1, img:"./Imagenes/Pollo.jpg"},
-    {id: 10, Nombre: "Rabas", Precio: 1300, Categoria: 1,  img:"./Imagenes/Rabas.jpg"},
-    {id: 11, Nombre: "Gaseosas", Precio: 350, Categoria: 4, img:"./Imagenes/Pollo.jpg"},
-    {id: 12, Nombre: "Vinos", Precio: 500, Categoria: 4, img:"./Imagenes/Pollo.jpg"},
-];
-
 let productosHTML = document.getElementById("sectionPlatos");
 
 let carrito = [];
@@ -76,42 +61,6 @@ const CarritoCalc = () => {
     precio.append(div);
 };
 
-const filtrado1 = (var1) => {
-    var1.forEach( item =>{
-        let div = document.createElement("div");
-        div.classList.add("productos")
-        div.style.backgroundImage = `url(${item.img})`;
-        div.style.backgroundSize = "cover";
-        div.style.backgroundRepeat = "no-repeat";
-        div.style.backgroundPosition = "center";
-        div.style.opacity = "0.9";
-        div.innerHTML = `
-            <h2>${item.Nombre}</h2>
-            <h4>$${item.Precio}</h4>
-            <button id="boton${item.id}"><i class="fas fa-shopping-cart"></i></button>
-        `
-        sectionPlatos.append(div);
-        
-        let boton = document.getElementById(`boton${item.id}`);
-
-        const ejecutar = (id) =>{
-            let encontrado = productos.find(item => item.id === id);
-            
-            if (!carrito.includes(encontrado)) {
-                carrito.push(item)
-                localStorage.setItem("Carrito", JSON.stringify(carrito))
-                agregar();
-                CarritoCalc();
-            } else {
-                encontradoItem();
-                localStorage.setItem("Carrito", JSON.stringify(carrito))
-            }
-        
-        }
-        boton.addEventListener("click", () => ejecutar(item.id)); 
-})};
-
-
 const filtrado = () => {
     fetch("./data.json")
     .then((response) => response.json())
@@ -158,10 +107,72 @@ let boton3 = document.getElementById("Postres");
 let boton4 = document.getElementById("Bebidas");
 let botonCarrito = document.getElementById("Carrito")
 
-const Hola = (categ) => {
-    const prod = productos.filter( (item) => item.Categoria === categ);
-    sectionPlatos.innerHTML = "";
-    filtrado1(prod); 
+const Hola = async (categ) => {
+    try {
+        const response = await fetch("./data.json")
+        const data = await response.json();
+
+        let filtro = categ;
+        let filtrados = data.filter( item => item.Categoria == filtro); //el status es una propiedad justo de esa api
+        
+        sectionPlatos.innerHTML = "";
+
+        filtrados.forEach( item =>{
+                let div = document.createElement("div");
+                div.classList.add("productos")
+                div.style.backgroundImage = `url(${item.img})`;
+                div.style.backgroundSize = "cover";
+                div.style.backgroundRepeat = "no-repeat";
+                div.style.backgroundPosition = "center";
+                div.style.opacity = "0.9";
+                div.innerHTML = `
+                    <h2>${item.Nombre}</h2>
+                    <h4>$${item.Precio}</h4>
+                    <button id="boton${item.id}"><i class="fas fa-shopping-cart"></i></button>
+                `
+                sectionPlatos.append(div);
+                
+                let boton = document.getElementById(`boton${item.id}`);
+        
+                const ejecutar = (id) =>{
+                    let encontrado = productos.find(item => item.id === id);
+                    
+                    if (!carrito.includes(encontrado)) {
+                        carrito.push(item)
+                        localStorage.setItem("Carrito", JSON.stringify(carrito))
+                        agregar();
+                        CarritoCalc();
+                    } else {
+                        encontradoItem();
+                        localStorage.setItem("Carrito", JSON.stringify(carrito))
+                    }
+                
+                }
+                boton.addEventListener("click", () => ejecutar(item.id)); 
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    } catch (error) {
+        
+    }
+
 };
 
 boton1.addEventListener("click", () => Hola(1));
